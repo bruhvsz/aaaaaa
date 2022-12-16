@@ -1,0 +1,387 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+getgenv().BlueESP = false
+getgenv().GreenESP = false
+getgenv().OrangeESP = false
+getgenv().BlockESP = false
+getgenv().FuseESP = false
+getgenv().FoodESP = false
+getgenv().AlwaysInBox = false
+getgenv().BatteryESP = false
+
+function BlueESP()
+	if getgenv().BlueESP then
+		local blue = game:GetService("Workspace").Monsters.Blue
+		if blue then
+			local BlueEsp = Instance.new("Highlight", blue)
+			BlueEsp.Adornee = blue
+			BlueEsp.Enabled = true
+			BlueEsp.FillColor = Color3.fromRGB(0, 0, 255)
+		elseif not blue or not getgenv().BlueESP then
+			return
+		end
+	end
+end
+
+function noBlueEsp()
+	local blue = game:GetService("Workspace").Monsters.Blue
+	if not getgenv().BlueESP and blue then
+		for _,v in pairs(blue:GetChildren()) do
+			if v.Name == "Highlight" then
+				v:Destroy()
+			end
+		end
+	end
+end
+
+
+
+
+function GreenESP()
+	if getgenv().GreenESP then
+		local green = game:GetService("Workspace").Monsters.Green
+		if green then
+			local GreenEsp = Instance.new("Highlight", green)
+			GreenEsp.Adornee = green
+			GreenEsp.Enabled = true
+			GreenEsp.FillColor = Color3.fromRGB(0, 255, 0)
+		elseif not green or getgenv().GreenESP == false then 
+			return
+		end
+	end 
+end
+
+function noGreenEsp()
+	local green = game:GetService("Workspace").Monsters:FindFirstChild("Green")
+	if not getgenv().GreenESP and green then
+		for _,v in pairs(green:GetChildren()) do
+			if v.Name == "Highlight" then
+				v:Destroy()
+			end
+		end
+	end
+end
+
+
+
+function OrangeESP()
+	if getgenv().OrangeESP then
+		local orange = game:GetService("Workspace").Monsters:FindFirstChild("Orange")
+		if orange then
+			local OrangeEsp = Instance.new("Highlight", orange)
+			OrangeEsp.Adornee = orange
+			OrangeEsp.Enabled = true
+			OrangeEsp.FillColor = Color3.fromRGB(255, 170, 0)
+		elseif not orange or getgenv().OrangeESP == false then 
+			return
+		end
+	end
+end
+
+function noOrangeEsp()
+	local orange = game:GetService("Workspace").Monsters:FindFirstChild("Orange")
+	if not getgenv().OrangeESP and orange then
+		for _,v in pairs(orange:GetChildren()) do
+			if v.Name == "Highlight" then
+				v:Destroy()
+			end
+		end
+	end
+end
+
+
+
+function BlockESP()
+	if getgenv().BlockESP then
+		for _,v in pairs(workspace:GetChildren()) do
+			if v.Name == "Block1" or v.Name == "Block2" or v.Name == "Block3" or v.Name == "Block4" or v.Name == "Block5" or v.Name == "Block6" or v.Name == "Block7" or v.Name == "Block8" or v.Name == "Block9" or v.Name == "Block10" or v.Name == "Block11" or v.Name == "Block12" or v.Name == "Block13" or v.Name == "Block14" or v.Name == "Block15" or v.Name == "Block16" or v.Name == "Block17" or v.Name == "Block18" or v.Name == "Block19" or v.Name == "Block20" or v.Name == "Block21" or v.Name == "Block22" or v.Name == "Block23" or v.Name == "Block24" or v.Name == "Block25" or v.Name == "Block26" then
+				local blockesp = Instance.new("Highlight",v)
+				blockesp.Adornee = v
+				blockesp.Enabled = true
+				blockesp.FillColor = Color3.fromRGB(255, 255, 255)
+			end
+		end
+	end
+end
+
+
+function notBlockESP()
+	if not getgenv().BlockESP then
+		for _,v in pairs(workspace:GetChildren()) do
+			if v.Name == "Block1" or v.Name == "Block2" or v.Name == "Block3" or v.Name == "Block4" or v.Name == "Block5" or v.Name == "Block6" or v.Name == "Block7" or v.Name == "Block8" or v.Name == "Block9" or v.Name == "Block10" or v.Name == "Block11" or v.Name == "Block12" or v.Name == "Block13" or v.Name == "Block14" or v.Name == "Block15" or v.Name == "Block16" or v.Name == "Block17" or v.Name == "Block18" or v.Name == "Block19" or v.Name == "Block20" or v.Name == "Block21" or v.Name == "Block22" or v.Name == "Block23" or v.Name == "Block24" or v.Name == "Block25" or v.Name == "Block26" then
+				local highlight = v:FindFirstChild("Highlight")
+				if highlight then
+					highlight:Destroy()
+				end
+			end
+		end
+	end
+end 
+
+
+function FoodEsp()
+	if getgenv().FoodESP then
+		for _,v in pairs(workspace:GetChildren()) do
+			if v.Name == "FoodGreen" or v.Name == "FoodOrange" or v.Name == "FoodPink" then
+				local foodesp = Instance.new("Highlight",v)
+				foodesp.Adornee = v
+				foodesp.Enabled = true
+				if v.Name == "FoodGreen" then
+					foodesp.FillColor = Color3.fromRGB(0, 170, 0)
+				else
+					foodesp.FillColor = Color3.fromRGB(255, 255, 255)
+				end
+
+				if v.Name == "FoodOrange" then
+					foodesp.FillColor = Color3.fromRGB(255, 85, 0)
+				else
+					foodesp.FillColor = Color3.fromRGB(255, 255, 255)
+				end
+
+				if v.Name == "FoodPink" then
+					foodesp.FillColor = Color3.fromRGB(255, 0, 255)
+				else
+					foodesp.FillColor = Color3.fromRGB(255, 255, 255)
+				end
+			end
+		end
+	end
+end
+
+function notFoodEsp()
+	for _,v in pairs(workspace:GetChildren()) do
+		if v.Name == "FoodGreen" or v.Name == "FoodOrange" or v.Name == "FoodPink" then
+			local highlight = v:FindFirstChild("Highlight")
+			if highlight then
+				highlight:Destroy()
+			end
+		end
+	end
+end
+
+
+function FuseEsp()
+	if getgenv().FuseESP then
+		for _,v in pairs(workspace:GetChildren()) do
+			if v.Name == "Fuse1" or v.Name == "Fuse2" or v.Name == "Fuse3" or v.Name == "Fuse4" or v.Name == "Fuse5" or v.Name == "Fuse6" or v.Name == "Fuse7" or v.Name == "Fuse8" or v.Name == "Fuse9" or v.Name == "Fuse10" or v.Name == "Fuse11" or v.Name == "Fuse12" or v.Name == "Fuse13" or v.Name == "Fuse14" then
+				local blockesp = Instance.new("Highlight",v)
+				blockesp.Adornee = v
+				blockesp.Enabled = true
+				blockesp.FillColor = Color3.fromRGB(255, 255, 255)
+			end
+		end
+	end
+end
+
+function notFuseEsp()
+	if not getgenv().FuseESP then
+		for _,v in pairs(workspace:GetChildren()) do
+			if v.Name == "Fuse1" or v.Name == "Fuse2" or v.Name == "Fuse3" or v.Name == "Fuse4" or v.Name == "Fuse5" or v.Name == "Fuse6" or v.Name == "Fuse7" or v.Name == "Fuse8" or v.Name == "Fuse9" or v.Name == "Fuse10" or v.Name == "Fuse11" or v.Name == "Fuse12" or v.Name == "Fuse13" or v.Name == "Fuse14" then
+				local highlight = v:FindFirstChild("Highlight")
+				if highlight then
+					highlight:Destroy()
+				end
+			end
+		end
+	end
+end
+
+function BatteryEsp()
+	if getgenv().BatteryESP then
+		for _,v in pairs(workspace:GetChildren()) do
+			if v.Name == "Battery" then
+				local batteryesp = Instance.new("Highlight",v)
+				batteryesp.Adornee = v
+				batteryesp.Enabled = true
+				batteryesp.FillColor = Color3.fromRGB(255, 255, 255)
+			end
+		end
+	end
+end
+
+function noBatteryEsp()
+	if not getgenv().BatteryESP then
+		for _,v in pairs(workspace:GetChildren()) do
+			if v.Name == "Battery" then
+				local highlight = v:FindFirstChild("Highlight")
+				if highlight then
+					highlight:Destroy()
+				end
+			end
+		end
+	end
+end
+
+function intheBox()
+	if getgenv().AlwaysInBox then
+		local args = {
+			[1] = "Equip"
+		}
+
+		game:GetService("ReplicatedStorage").communication.boxes.cl.BoxUpdated:FireServer(unpack(args))
+	end
+end
+
+function notintheBox()
+	if not getgenv().AlwaysInBox then
+		local args = {
+			[1] = "Unequip"
+		}
+
+		game:GetService("ReplicatedStorage").communication.boxes.cl.BoxUpdated:FireServer(unpack(args))
+	end
+end
+
+
+local CheatWindow = OrionLib:MakeWindow({Name = "PidorasHack", HidePremium = true, SaveConfig = false, ConfigFolder = "PidorasHack"})
+
+local ESPTab = CheatWindow:MakeTab({
+	Name = "NPC",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local PlayerTab = CheatWindow:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local ItemsTab = CheatWindow:MakeTab({
+	Name = "Items",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+ESPTab:AddToggle({
+	Name = "BlueESP",
+	Default = false,
+	Callback = function(bool)
+		getgenv().BlueESP = bool
+		if bool then
+			BlueESP()
+		end
+		
+		if not bool then
+			noBlueEsp()
+		end
+	end    
+})
+
+ESPTab:AddToggle({
+	Name = "GreenESP",
+	Default = false,
+	Callback = function(bool)
+		getgenv().GreenESP = bool
+		if bool then
+			GreenESP()
+		end
+		
+		if not bool then
+			noGreenEsp()
+		end
+	end    
+})
+
+ESPTab:AddToggle({
+	Name = "OrangeESP",
+	Default = false,
+	Callback = function(bool)
+		getgenv().OrangeESP = bool
+		if bool then
+			OrangeESP()
+		end
+		
+		if not bool then
+			noOrangeEsp()
+		end
+	end    
+})
+
+PlayerTab:AddSlider({
+	Name = "WalkSpeed",
+	Min = 16,
+	Max = 256,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Speed",
+	Callback = function(speed)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
+	end    
+})
+
+PlayerTab:AddToggle({
+	Name = "Invisible",
+	Default = false,
+	Callback = function(bool)
+		getgenv().AlwaysInBox = bool
+		if bool then
+			intheBox()
+		end
+		
+		if not bool then
+			notintheBox()
+		end
+	end    
+})
+
+ItemsTab:AddToggle({
+	Name = "BlocksESP",
+	Default = false,
+	Callback = function(bool)
+		getgenv().BlockESP = bool
+		if bool then
+			BlockESP()
+		end
+
+		if not bool then
+			notBlockESP()
+		end
+	end    
+})
+
+ItemsTab:AddToggle({
+	Name = "FoodESP",
+	Default = false,
+	Callback = function(bool)
+		getgenv().FoodESP = bool
+		if bool then
+			FoodEsp()
+		end
+
+		if not bool then
+			notFoodEsp()
+		end
+	end    
+})
+
+ItemsTab:AddToggle({
+	Name = "FuseESP",
+	Default = false,
+	Callback = function(bool)
+		getgenv().FuseESP = bool
+		if bool then
+			FuseEsp()
+		end
+
+		if not bool then
+			notFuseEsp()
+		end
+	end    
+})
+
+ItemsTab:AddToggle({
+	Name = "BatteryESP",
+	Default = false,
+	Callback = function(bool)
+		getgenv().BatteryESP = bool
+		if bool then
+			BatteryEsp()
+		end
+
+		if not bool then
+			noBatteryEsp()
+		end
+	end    
+})
